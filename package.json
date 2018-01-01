@@ -1,6 +1,6 @@
 {
   "name": "persistent-object-es6",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Make object persistent via sessionStorage or localStorage",
   "repository": {
     "type": "git",

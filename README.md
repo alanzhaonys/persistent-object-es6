@@ -33,6 +33,24 @@ class FlatAssObject extends PersistentObjectES6 {
     // Create it - required at the end of the constructor
     return this.create();
   }
+  
+  // Your class methods here
+  
+  setVar1(val) {
+    this.var1 = val;
+  }
+  
+  getVar1() {
+    return this.var1;
+  }
+  
+  setVar2(val) {
+    this.var2 = val;
+  }
+  
+  getVar2() {
+    return this.var2;
+  }
 }
 
 // Instantiate your object

@@ -18,6 +18,7 @@ const PersistentObjectES6 = require('persistent-object-es6');
 
 // Extends your class - required
 class FlatAssObject extends PersistentObjectES6 {
+
   constructor() {
     // Initialize it - required at the beginning of the constructor
     super('this-flat-ass-object-unique-name', 'Session');

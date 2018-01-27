@@ -6,20 +6,20 @@ class PersistentObjectES6 {
    *
    * @constructor
    * @access public
-   * @param {string} name           - The unique name of the object
-   * @param {string} storageType    - The storage type, "Local" or "Session"
-   * @param {object} storageMock    - The storage mock for testing purpose
+   * @param {string} name             - The unique name of the object
+   * @param {string} storageType      - The storage type, "Local" or "Session"
+   * @param {Object} storageOverride  - Provide a custom storage object, useful for testing
    */
-  constructor(name, storageType, storageMock = null) {
+  constructor(name, storageType, storageOverride = null) {
     this.name = name;
     this.storage = null;
 
     switch (storageType.toLowerCase()) {
       case 'local':
-        this.storage = new WebStorageES6('Local', this.name, storageMock);
+        this.storage = new WebStorageES6('Local', this.name, storageOverride);
         break;
       case 'session':
-        this.storage = new WebStorageES6('Session', this.name, storageMock);
+        this.storage = new WebStorageES6('Session', this.name, storageOverride);
         break;
     }
 

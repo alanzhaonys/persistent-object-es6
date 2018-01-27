@@ -1,14 +1,16 @@
 'use strict';
 
 const PersistentObjectES6 = require('../dist/index');
-var expect = require('chai').expect;
-var storageMock = storageMock();
+const expect = require('chai').expect;
+// This persistentStorage global variable emulates sessionStorage
+// and localStorage which persists data
+const persistentStorage = storageMock();
 
 class TestObject extends PersistentObjectES6 {
 
   constructor(name, storageType) {
     // Initialize it
-    super(name, storageType, storageMock);
+    super(name, storageType, persistentStorage);
 
     this._var1 = null;
     this._var2 = '';
@@ -69,7 +71,7 @@ describe('PersistentObjectES6', function() {
     expect(testObject2.var1).to.equal('val1');
     expect(testObject2.getVar2()).to.equal('val2');
 
-    // Doesn't work for Array and Object class properties
+    // Just to demonstrate that this won't work for Array and Object class properties
     expect(testObject2.getVar3()).to.deep.equal([]);
     expect(testObject2.getVar4()).to.deep.equal({});
 
